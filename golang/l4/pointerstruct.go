@@ -12,7 +12,9 @@ type person struct {
 func main(){
   
   var person1=person{"jingdor",18}
-  fmt.Println(person1)
+  p	:=&person1
+  p.age=20
+  fmt.Println(person1.age)
 
 
 
