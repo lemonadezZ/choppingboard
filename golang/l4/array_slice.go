@@ -10,6 +10,10 @@ func main(){
 		a[0]="jingdor" 
 		a[0]="alice" 
 		fmt.Println(a[0])
-		b:=[2]string{"jingdor","alice"}
+		b:=[4]string{"jingdor","alice","viking","cgoer"}
 		fmt.Println(b)
+		fmt.Println(b[:2])
+		fmt.Println(b[2:3])
+		fmt.Println(b[2:])
+		fmt.Println(b[0:0])
 }
