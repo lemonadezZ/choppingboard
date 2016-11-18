@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+echo $1
+mkdir $1
+cp default.go $1/
+cd $1
+touch $1.go
