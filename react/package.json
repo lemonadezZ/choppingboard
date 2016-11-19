@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-router": "^3.0.0"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/babel src -d js/ && sass src/main.sass css/main.css",
+    "compile": "./node_modules/.bin/babel  --minified  src -d js/"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "gulp-webserver": "^0.9.1"
+  }
+}

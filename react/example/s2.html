@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>learning REACT</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/ReactRouter.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    </head>
+  <body>
+    <div id="root">
+    </div>
+  </body>
+  <script src="../build/browser.min.js"></script>
+   <script type="text/babel">
+         
+          class Form extends React.Component {
+            constructor(props) {
+              super(props);
+              this.state = {
+                    username: '',
+                    password:  ''
+                    };
+              this.handleUsernameChange = this.handleUsernameChange.bind(this);
+              this.handlePasswordChange = this.handlePasswordChange.bind(this);
+              this.handleSubmit = this.handleSubmit.bind(this);
+              this.handleClear = this.handleClear.bind(this);
+            }
+            handleUsernameChange(event) {
+              this.setState(
+                  {
+                    username: event.target.value.substr(0, 8)
+                  }
+              ); 
+            }
+             handlePasswordChange(event) {
+              this.setState(
+                  {
+                    password: event.target.value.substr(0, 8)
+                  }
+              ); 
+            }
+            handleClear() {
+            this.setState({
+              username: '',
+              password: ''
+            });
+          }
+
+            handleSubmit(event) {
+               console.log('提交事件')
+              alert('用户名:' + this.state.username+"\n"+"密码:"+this.state.password);
+            }
+
+            render() {
+              return (
+                <div>
+                  <input type="text"
+                    placeholder="用户名"
+                    value={this.state.username}
+                    onChange={this.handleUsernameChange} 
+                    />
+                  <br />
+                  <input type="password"
+                    placeholder="密码"
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange} 
+                    />
+                     <br />
+                  <select  >
+                    <option value="0">保密</option>
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                  </select>
+                   <br />
+                  <button onClick={this.handleSubmit}>
+                    Submit
+                  </button>
+                  <button onClick={this.handleClear}>
+                    Clear
+                  </button>
+                </div>
+              );
+            }
+          }
+
+          Router= window.ReactRouter;
+          ReactDOM.render(
+             <Router history={browserHistory}>
+              <Route path="/" component={Form}>
+                <Route path="about" component={About}/>
+                <Route path="users" component={Users}>
+                  <Route path="/user/:userId" component={User}/>
+                </Route>
+                <Route path="*" component={NoMatch}/>
+              </Route>
+            </Router>,
+            document.getElementById('root')
+          );
+
+      
+   </script>
+</html>
